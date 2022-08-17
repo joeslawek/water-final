@@ -83,6 +83,7 @@
 
 <div>
   <div>
+  <%if @the_water_post.post_author_id == @current_user.id %>
     <h2>
       Edit water post
     </h2>
@@ -140,6 +141,10 @@
         Update water post
       </button>
     </form>
+    <%else%>
+  
+    <%end%>
+
   </div>
 </div>
 

@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-
+  get("/", { :controller => "water_posts", :action => "index" })
 
   # Routes for the Like resource:
-
   # CREATE
   post("/insert_like", { :controller => "likes", :action => "create" })
           

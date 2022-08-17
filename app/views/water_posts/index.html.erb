@@ -39,15 +39,15 @@
         <input type="text" id="caption_box" name="query_caption">
       </div>
 
-      <div>
+      <%# <div>
         <label for="post_author_id_box">
           Post author
         </label>
 
         <input type="text" id="post_author_id_box" name="query_post_author_id">
-      </div>
+      </div> %>
 
-      <div>
+      <%# <div>
         <label for="likes_count_box">
           Likes count
         </label>
@@ -61,7 +61,7 @@
         </label>
 
         <input type="text" id="comments_count_box" name="query_comments_count">
-      </div>
+      </div> %>
 
       <button>
         Create water post
@@ -92,23 +92,14 @@
         </th>
 
         <th>
-          Post author
+          Author User #
         </th>
 
-        <th>
-          Likes count
-        </th>
+        
 
+      
         <th>
-          Comments count
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Last Modified
         </th>
 
         <th>
@@ -137,17 +128,9 @@
           <%= a_water_post.post_author_id %>
         </td>
 
-        <td>
-          <%= a_water_post.likes_count %>
-        </td>
+        
 
-        <td>
-          <%= a_water_post.comments_count %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_water_post.created_at) %> ago
-        </td>
+        
         <td>
           <%= time_ago_in_words(a_water_post.updated_at) %> ago
         </td>

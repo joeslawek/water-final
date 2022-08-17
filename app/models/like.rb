@@ -9,4 +9,9 @@
 #  post_id    :integer
 #
 class Like < ApplicationRecord
+
+  belongs_to(:fan, { :required => true, :class_name => "User", :foreign_key => "fan_id" })
+
+  belongs_to(:post, { :required => true, :class_name => "WaterPost", :foreign_key => "post_id", :counter_cache => true })
+
 end
