@@ -1,4 +1,4 @@
-Hi!
+
 
 <h1> Welcome to <%= @u.email %>'s Hydration Page <h1>
 
@@ -9,9 +9,15 @@ Hi!
 
 This user has drank
 
-
+<%#=@u.ounce_count%>
 
 <%#= water_count.calculate(:sum, :ounce_count)%>
+
+
+
+<%= @u.water_posts.sum(:ounce_count)	 %>
+
+
 
 total ounces of water since joining Hydration Hero! 
  <%# <% if post_author_id == @user_num %>
@@ -19,3 +25,95 @@ total ounces of water since joining Hydration Hero!
 <%# <% sum ounce_count%>
 
  <%#end%> 
+<div>
+<div>
+<%= @u.email %>'s Water Chart!
+
+
+<table border="3">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Ounce count
+        </th>
+
+        <th>
+          Caption
+        </th>
+
+        <th>
+          Author User #
+        </th>
+
+
+        
+        
+
+      
+        <th>
+          Last Modified
+        </th>
+
+<th>
+          Click for details 
+        </th>
+
+        
+      </tr>
+      
+<%= @user_num  %>
+<%# individual_drinker = User.where({ :id => @user_num }).at(0) %>
+
+<% drinker_posts = WaterPost.where({ :post_author_id => @user_num}) %>
+<%#= p drinker_post%> 
+
+      <% drinker_posts.each do |a_water_post| %>
+      <tr>
+        <td>
+          <%= a_water_post.id %>
+        </td>
+
+        <td>
+          <%= a_water_post.date %>
+        </td>
+
+        <td>
+          <%= a_water_post.ounce_count %>
+        </td>
+
+        <td>
+          <%= a_water_post.caption %>
+        </td>
+
+        <td>
+       
+
+         
+  
+
+  <% @post_user = a_water_post.post_author_id %>
+ <% @a = User.where({ :id => @post_user }).at(0) %>
+
+   <%= @a.email %>
+</a>
+
+        
+        <td>
+          <%= time_ago_in_words(a_water_post.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/water_posts/<%= a_water_post.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>

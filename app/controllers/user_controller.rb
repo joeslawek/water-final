@@ -8,6 +8,9 @@ class UserController < ApplicationController
 
 
 
+matching_water_posts = WaterPost.all
+
+    @list_of_water_posts = matching_water_posts.order({ :created_at => :desc })
 
 
     render({ :template => "users/show.html.erb" })
