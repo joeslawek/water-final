@@ -1,0 +1,18 @@
+Hi!
+
+<h1> Welcome to User <%=@user_num %>'s Hydration Page <h1>
+
+
+<div>
+
+This user has drank
+
+<%= @user_num %>
+
+<%= water_count.calculate(:sum, :ounce_count)%>
+
+ <%# <% if post_author_id == @user_num %>
+
+<%# <% sum ounce_count%>
+
+ <%#end%> 

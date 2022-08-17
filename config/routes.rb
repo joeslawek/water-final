@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+ get("/users/:specific", { :controller => "user", :action => "details" })
+
   get("/", { :controller => "water_posts", :action => "index" })
 
   # Routes for the Like resource:
