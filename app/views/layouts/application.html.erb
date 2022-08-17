@@ -74,7 +74,10 @@
 </nav>
 
  <% @current_user = session.fetch(:user_id) %>
- Hello User #<%=@current_user %>
+ <% @u = User.where({ :id => @current_user }).at(0) %>
+ <% if session.fetch(:user_id) != nil %>
+ Hello  <%= @u.email %>
+ <%end%>
   <body>
   <p style="color: green"><%= notice %> </p>
   <p style="color: red"><%= alert %> </p>

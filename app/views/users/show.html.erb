@@ -1,17 +1,20 @@
 Hi!
 
-<h1> Welcome to User <%=@user_num %>'s Hydration Page <h1>
+<h1> Welcome to <%= @u.email %>'s Hydration Page <h1>
 
 
 <div>
 
+<%= @u.email %>
+
+
 This user has drank
 
-<%= @user_num %>
+
 
 <%#= water_count.calculate(:sum, :ounce_count)%>
 
-since joining Hydration Hero! 
+total ounces of water since joining Hydration Hero! 
  <%# <% if post_author_id == @user_num %>
 
 <%# <% sum ounce_count%>

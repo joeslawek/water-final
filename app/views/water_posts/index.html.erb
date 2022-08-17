@@ -154,7 +154,12 @@
        
 
           <a href="users/<%= a_water_post.post_author_id %>">
-  <%= a_water_post.post_author_id %>
+  
+
+  <% @post_user = a_water_post.post_author_id %>
+ <% @a = User.where({ :id => @post_user }).at(0) %>
+
+   <%= @a.email %>
 </a>
 
         
