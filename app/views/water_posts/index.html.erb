@@ -37,7 +37,7 @@
 
       <div>
         <label for="ounce_count_box">
-          Ounce count
+          How many ounces did you drink?
         </label>
 
         <input type="text" id="ounce_count_box" name="query_ounce_count">
@@ -45,7 +45,7 @@
 
       <div>
         <label for="caption_box">
-          Caption
+          Add a comment!
         </label>
 
         <input type="text" id="caption_box" name="query_caption">
@@ -82,7 +82,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+       
       </div>
     </div>
   </div>
@@ -99,11 +99,9 @@
 <hr>
 <div>
   <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
+    <table class="table table-striped table-primary" >
+      <tr class="table-dark">
+        
 
         <th>
           Date
@@ -139,9 +137,7 @@
 
       <% @list_of_water_posts.each do |a_water_post| %>
       <tr>
-        <td>
-          <%= a_water_post.id %>
-        </td>
+        
 
         <td>
           <%= a_water_post.date %>

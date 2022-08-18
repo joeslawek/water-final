@@ -5,12 +5,14 @@
 
 <div>
 
+<p>
+<p class="bottom-three">
 
 
 <h3> This user has drank
 <%= @u.water_posts.sum(:ounce_count)	 %>
 total ounces of water since joining Hydration Hero! </h3>
-
+</p>
 <div>
 <h1> <%= @u.email %>'s Water Chart! </h1>
 
@@ -19,10 +21,8 @@ total ounces of water since joining Hydration Hero! </h3>
 <thead class="table-light">
 
 
-      <tr>
-        <th>
-          ID
-        </th>
+      <tr class="table-dark">
+       
 
         <th>
           Date
@@ -37,7 +37,7 @@ total ounces of water since joining Hydration Hero! </h3>
         </th>
 
         <th>
-          Author User #
+          User
         </th>
 
 
@@ -65,17 +65,15 @@ total ounces of water since joining Hydration Hero! </h3>
 
       <% drinker_posts_order.each do |a_water_post| %>
       <tr>
-        <td>
-          <%= a_water_post.id %>
-        </td>
+       
 
         <td>
           <%= a_water_post.date %>
         </td>
 
-        <td>
+        <th text-align: center>
           <%= a_water_post.ounce_count %>
-        </td>
+        </th>
 
         <td>
           <%= a_water_post.caption %>
