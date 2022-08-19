@@ -49,36 +49,27 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/user_sign_out">Sign out</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+<% @current_user = session.fetch(:user_id) %>
+ <% @z = User.where({ :id => @current_user }).at(0) %>
+<% if session.fetch(:user_id) != nil %>
+          <a class="nav-link active" href="/users/<%= @z.id %>">My Water Page</a>
+          <%end%>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link active" href="/user_sign_out">Sign out</a>
         </li>
+        
+          
+        </li>
+       
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+     
+     
     </div>
   </div>
 </nav>
 
- <% @current_user = session.fetch(:user_id) %>
- <% @u = User.where({ :id => @current_user }).at(0) %>
- <% if session.fetch(:user_id) != nil %>
-   <%= @u.email %> is logged in
- <%end%>
+ 
   <body>
   <p style="color: green"><%= notice %> </p>
   <p style="color: red"><%= alert %> </p>
@@ -94,4 +85,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
    
 
   </body>
+   <% @current_user = session.fetch(:user_id) %>
+ <% @u = User.where({ :id => @current_user }).at(0) %>
+ <% if session.fetch(:user_id) != nil %>
+   <%= @u.email %> is logged in
+ <%end%>
 </html>

@@ -10,9 +10,11 @@
 
 
 <h3> This user has drank
-<%= @u.water_posts.sum(:ounce_count)	 %>
+<% @total_water = @u.water_posts.sum(:ounce_count)	 %>
+<%= @total_water%>
 total ounces of water since joining Hydration Hero! </h3>
 </p>
+<h4> That is <% @bottle = @total_water/16 %><%= @bottle  %>   bottles of water or <% @gallon = @total_water/64%><%= @gallon  %> gallons of water!
 <div>
 <h1> <%= @u.email %>'s Water Chart! </h1>
 

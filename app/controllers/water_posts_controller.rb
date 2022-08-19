@@ -2,7 +2,7 @@ class WaterPostsController < ApplicationController
   def index
     matching_water_posts = WaterPost.all
 
-    @list_of_water_posts = matching_water_posts.order({ :created_at => :desc })
+    @list_of_water_posts = matching_water_posts.order({ :date => :desc })
 
     render({ :template => "water_posts/index.html.erb" })
   end
@@ -40,9 +40,8 @@ class WaterPostsController < ApplicationController
     the_water_post.date = params.fetch("query_date")
     the_water_post.ounce_count = params.fetch("query_ounce_count")
     the_water_post.caption = params.fetch("query_caption")
-    the_water_post.post_author_id = params.fetch("query_post_author_id")
-    the_water_post.likes_count = params.fetch("query_likes_count")
-    the_water_post.comments_count = params.fetch("query_comments_count")
+    #the_water_post.post_author_id = params.fetch("query_post_author_id")
+    
 
     if the_water_post.valid?
       the_water_post.save

@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Water post #<%= @the_water_post.id %> details
+      Water post details
     </h1>
 
     <div>
@@ -40,22 +40,15 @@
         Post author
       </dt>
       <dd>
-        <%= @the_water_post.post_author_id %>
+      <% @post_user = @the_water_post.post_author_id %>
+ <% @a = User.where({ :id => @post_user }).at(0) %>
+
+   <%= @a.email %>
       </dd>
 
-      <dt>
-        Likes count
-      </dt>
-      <dd>
-        <%= @the_water_post.likes_count %>
-      </dd>
+      
 
-      <dt>
-        Comments count
-      </dt>
-      <dd>
-        <%= @the_water_post.comments_count %>
-      </dd>
+      
 
       <dt>
         Created at
@@ -109,8 +102,18 @@
         <input type="text" id="caption_box" name="query_caption" value="<%= @the_water_post.caption %>">
       </div>
 
+      <%# <div>
+        <label for="post_author_id_box">
+          Post author
+        </label>
+
+        <input type="text" id="post_author_id_box" name="query_post_author_id" value="<%= @the_water_post.post_author_id %>
+      </div> 
+
       
-      
+
+     
+
       <button>
         Update water post
       </button>
